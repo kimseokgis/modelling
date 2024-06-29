@@ -1,3 +1,4 @@
+import string
 import pandas as pd
 import numpy as np
 
@@ -27,9 +28,30 @@ replace_dict = {
     '\n\n': ''
 }
 
-df['question'] = df['question'].apply(lambda x: replace_symbols(str(x), replace_dict))
-df['answer'] = df['answer'].apply(lambda x: replace_symbols(str(x), replace_dict))
+# df['question'] = df['question'].apply(lambda x: replace_symbols(str(x), replace_dict))
+# df['answer'] = df['answer'].apply(lambda x: replace_symbols(str(x), replace_dict))
 
-output_file = '../dataset/output.csv'
-df.to_csv(output_file, sep='|', index=False)
+def string_replace(original_string, to_replace, replacement):
+    """
+    Replace occurrences of 'to_replace' in 'original_string' with 'replacement'.
+
+    Parameters:
+    original_string (str): The string in which replacements will be made.
+    to_replace (str): The substring to replace.
+    replacement (str): The substring to replace with.
+
+    Returns:
+    str: The modified string with replacements made.
+    """
+    return original_string.replace(to_replace, replacement)
+
+column_name = 'answer'
+
+df['answer'] = df['answer'].apply(lambda x: string_replace(x, '\n', ''))
+
+# Save the modified DataFrame to a new CSV file
+df.to_csv('./dataset/modified_dataset-a.csv', index=False)
+
+# Example to print the first few rows of the modified DataFrame
+print(df.head())
 
