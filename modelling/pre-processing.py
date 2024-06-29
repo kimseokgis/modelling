@@ -11,3 +11,25 @@ def replace_symbols(text, replace_dict):
     for symbol, replacement in replace_dict.items():
         text = text.replace(symbol, replacement)
     return text
+
+replace_dict = {
+    '@': '',
+    '#': '',
+    '&': 'dan',
+    '!': '',
+    '"': '',
+    "'": '',
+    ",": '',
+    '.': '',
+    '?': '',
+    '}\n\n': '',
+    '\n': ' ',
+    '\n\n': ''
+}
+
+df['question'] = df['question'].apply(lambda x: replace_symbols(str(x), replace_dict))
+df['answer'] = df['answer'].apply(lambda x: replace_symbols(str(x), replace_dict))
+
+output_file = '../dataset/output.csv'
+df.to_csv(output_file, sep='|', index=False)
+
