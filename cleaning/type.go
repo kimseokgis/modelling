@@ -7,3 +7,9 @@ type Dataset struct {
 	Questions string             `json:"questions" bson:"questions"`
 	Answers   string             `json:"answer" bson:"answer"`
 }
+
+type PaginationParams struct {
+	Page   int64 `json:"page"`
+	Limit  int64 `json:"limit"`
+	Offset int64 `json:"offset"`
+}
