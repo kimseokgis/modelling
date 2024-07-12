@@ -55,8 +55,8 @@ train_labels = tf.gather(labels, train_labels_idx)
 test_labels = tf.gather(labels, test_labels_idx)
 
 # Convert to tf.data.Dataset
-train_dataset = tf.data.Dataset.from_tensor_slices(((train_inputs, train_masks), train_labels)).shuffle(len(train_labels)).batch(32)
-test_dataset = tf.data.Dataset.from_tensor_slices(((test_inputs, test_masks), test_labels)).batch(32)
+train_dataset = tf.data.Dataset.from_tensor_slices(((train_inputs, train_masks), train_labels)).shuffle(len(train_labels)).batch(150)
+test_dataset = tf.data.Dataset.from_tensor_slices(((test_inputs, test_masks), test_labels)).batch(150)
 
 # Load model
 model = TFBertForSequenceClassification.from_pretrained('indobenchmark/indobert-base-p2', num_labels=len(label_encoder.classes_))
@@ -76,7 +76,7 @@ optimizer = tf.keras.optimizers.Adam(learning_rate=2e-5, epsilon=1e-8)
 loss_fn = tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True)
 
 # Training loop
-epochs = 3
+epochs = 400
 for epoch in range(epochs):
     print(f"Epoch {epoch + 1}/{epochs}")
     for step, (x_batch_train, y_batch_train) in enumerate(train_dataset):
