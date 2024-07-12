@@ -22,7 +22,7 @@ try:
 except:
     pass
 
-dataset = pd.read_csv('data.csv', delimiter="|", header=None, lineterminator='\n')
+dataset = pd.read_csv('qa.csv', delimiter="|", header=None, lineterminator='\n')
 
 # Ensure the dataset has at least two columns
 if dataset.shape[1] < 2:
@@ -60,11 +60,10 @@ questions_test = ensure_string(questions_test)
 answers_test = ensure_string(answers_test)
 
 target_regex = '!"#$%&()*+,-./:;<=>?@[\]^_`{|}~\t\n\'0123456789'
-tokenizer = Tokenizer(filters=target_regex, lower=True)
+max_vocab_size = 100  # Set a limit on the vocabulary size
+tokenizer = Tokenizer(filters=target_regex, lower=True, num_words=max_vocab_size)
 tokenizer.fit_on_texts(questions_train + answers_train + questions_test + answers_test)
-save_tokenizer(tokenizer)
-
-VOCAB_SIZE = len(tokenizer.word_index) + 1
+VOCAB_SIZE = min(len(tokenizer.word_index) + 1, max_vocab_size)
 save_config('VOCAB_SIZE', VOCAB_SIZE)
 print('Vocabulary size : {}'.format(VOCAB_SIZE))
 
@@ -125,10 +124,14 @@ output = dec_dense(dec_output2)
 logdir = os.path.join(path, "logs")
 tensorboard_callback = TensorBoard(logdir, histogram_freq=1)
 
-checkpoint = ModelCheckpoint(os.path.join(path, 'model-{epoch:02d}-{loss:.2f}.hdf5'),
-                             monitor='loss',
-                             verbose=1,
-                             save_best_only=True, mode='auto', period=150)
+checkpoint = ModelCheckpoint(
+    os.path.join(path, 'model-{epoch:02d}-{loss:.2f}.hdf5'),
+    monitor='loss',
+    verbose=1,
+    save_best_only=True,
+    mode='auto',
+    save_freq=150  # Assuming 'train_data' is your training dataset
+)
 
 model = Model([enc_inp, dec_inp], output)
 model.compile(optimizer=RMSprop(), loss='categorical_crossentropy', metrics=['accuracy'])
