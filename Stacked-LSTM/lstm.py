@@ -14,10 +14,10 @@ from keras_preprocessing.text import Tokenizer
 
 sess = tf.compat.v1.Session(config=tf.compat.v1.ConfigProto(log_device_placement=True))
 
-path = "output_dir/"
+path = "output_dir_14k/"
 os.makedirs(path, exist_ok=True)
 
-dataset = pd.read_csv('qa.csv', delimiter="|", header=None, lineterminator='\n')
+dataset = pd.read_csv('data.csv', delimiter="|", header=None, lineterminator='\n')
 
 # Ensure the dataset has at least two columns
 if dataset.shape[1] < 2:
@@ -31,7 +31,7 @@ questions_test = dataset.iloc[1794:, 0].values.tolist()
 answers_test = dataset.iloc[1794:, 1].values.tolist()
 
 def save_tokenizer(tokenizer):
-    with open('output_dir/tokenizer.pickle', 'wb') as handle:
+    with open('output_dir_14k/tokenizer.pickle', 'wb') as handle:
         pickle.dump(tokenizer, handle, protocol=pickle.HIGHEST_PROTOCOL)
 
 def save_config(key, value):
@@ -130,8 +130,8 @@ model = Model([enc_inp, dec_inp], output)
 model.compile(optimizer=RMSprop(), loss='categorical_crossentropy', metrics=['accuracy'])
 model.summary()
 
-batch_size = 64
-epochs = 600
+batch_size = 100
+epochs = 1000
 model.fit([encoder_input_data_train, decoder_input_data_train],
           decoder_output_data_train,
           batch_size=batch_size,
