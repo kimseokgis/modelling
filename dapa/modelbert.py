@@ -59,3 +59,7 @@ def train_step(model, optimizer, loss_fn, x, y):
     gradients = tape.gradient(loss, model.trainable_variables)
     optimizer.apply_gradients(zip(gradients, model.trainable_variables))
     return loss
+
+# Compile the model
+optimizer = tf.keras.optimizers.Adam(learning_rate=2e-5, epsilon=1e-8)
+loss_fn = tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True)
