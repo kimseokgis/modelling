@@ -19,3 +19,6 @@ label_encoder = LabelEncoder()
 df['encoded_answer'] = label_encoder.fit_transform(df['answer'])
 
 # Prepare the dataset
+tokenizer = BertTokenizer.from_pretrained('indobenchmark/indobert-base-p2')
+input_ids = []
+attention_masks = []
