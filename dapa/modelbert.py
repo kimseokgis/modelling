@@ -34,3 +34,11 @@ for question in df['question']:
     )
     input_ids.append(encoded['input_ids'])
     attention_masks.append(encoded['attention_mask'])
+input_ids = tf.concat(input_ids, axis=0)
+attention_masks = tf.concat(attention_masks, axis=0)
+labels = tf.constant(df['encoded_answer'].values)
+
+# Split the dataset into training and test sets
+train_inputs, test_inputs, train_masks, test_masks, train_labels, test_labels = train_test_split(
+    input_ids, attention_masks, labels, test_size=0.2, random_state=42
+)
