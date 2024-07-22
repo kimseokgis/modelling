@@ -42,3 +42,10 @@ labels = tf.constant(df['encoded_answer'].values)
 train_inputs, test_inputs, train_masks, test_masks, train_labels, test_labels = train_test_split(
     input_ids, attention_masks, labels, test_size=0.2, random_state=42
 )
+
+# Convert to tf.data.Dataset
+train_dataset = tf.data.Dataset.from_tensor_slices(((train_inputs, train_masks), train_labels)).shuffle(len(train_labels)).batch(150)
+test_dataset = tf.data.Dataset.from_tensor_slices(((test_inputs, test_masks), test_labels)).batch(150)
+
+# Load model
+model = TFBertForSequenceClassification.from_pretrained('indobenchmark/indobert-base-p2', num_labels=len(label_encoder.classes_))
