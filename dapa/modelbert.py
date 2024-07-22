@@ -77,3 +77,13 @@ for epoch in range(epochs):
 # Save the model
 model.save_pretrained('indobert_model')
 tokenizer.save_pretrained('indobert_model')
+
+# Evaluation
+def evaluate(model, test_dataset):
+    accuracy = tf.keras.metrics.SparseCategoricalAccuracy('accuracy')
+    for (x_batch_test, y_batch_test) in test_dataset:
+        logits = model((x_batch_test[0], x_batch_test[1]), training=False).logits
+        accuracy.update_state(y_batch_test, logits)
+    print(f"Test Accuracy: {accuracy.result().numpy():.4f}")
+
+evaluate(model, test_dataset)
