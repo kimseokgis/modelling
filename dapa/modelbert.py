@@ -49,3 +49,13 @@ test_dataset = tf.data.Dataset.from_tensor_slices(((test_inputs, test_masks), te
 
 # Load model
 model = TFBertForSequenceClassification.from_pretrained('indobenchmark/indobert-base-p2', num_labels=len(label_encoder.classes_))
+
+# Custom train step
+@tf.function
+def train_step(model, optimizer, loss_fn, x, y):
+    with tf.GradientTape() as tape:
+        logits = model(x, training=True).logits
+        loss = loss_fn(y, logits)
+    gradients = tape.gradient(loss, model.trainable_variables)
+    optimizer.apply_gradients(zip(gradients, model.trainable_variables))
+    return loss
