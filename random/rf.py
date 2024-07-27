@@ -82,10 +82,14 @@ def evaluate_model(model, X_test, y_test, label_encoder):
     logging.info(f"Accuracy: {accuracy}")
     logging.info("Classification Report:\n" + report)
     return accuracy, report
+
 def save_model(model, vectorizer, label_encoder, path):
     """
     Save the model, vectorizer, and label encoder to disk.
     """
+     logging.info("Saving model, vectorizer, and label encoder")
+    with open(os.path.join(path, 'rf_classifier.pkl'), 'wb') as model_file:
+        pickle.dump(model, model_file)
 
 
 X_train, X_test, y_train, y_test = train_test_split(combined_text, labels, test_size=0.2, random_state=42)
