@@ -101,7 +101,11 @@ def main():
     file_path = 'data.csv'
     delimiter = "|"
     header = None   
-
+ lineterminator = '\n'
+test_size = 0.2
+   random_state = 42
+   max_features = 1000
+   n_estimators = 100
 
 X_train, X_test, y_train, y_test = train_test_split(combined_text, labels, test_size=0.2, random_state=42)
 
