@@ -8,11 +8,12 @@ from sklearn.metrics import accuracy_score, classification_report
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
 
+# Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 def create_output_directory(path):
     """
-    Create the output directory jika tidak ditemukan
+    Create the output directory if it does not exist.
     """
     logging.info(f"Creating output directory at: {path}")
     os.makedirs(path, exist_ok=True)
@@ -26,11 +27,11 @@ def load_dataset(file_path, delimiter, header, lineterminator):
     if dataset.shape[1] < 2:
         raise ValueError("The dataset does not have the expected number of columns.")
     return dataset
+
 def combine_questions_answers(questions, answers):
     """
     Combine questions and answers into a single string for each pair.
     """
-
     logging.info("Combining questions and answers")
     return [f"{q} {a}" for q, a in zip(questions, answers)]
 
@@ -50,7 +51,6 @@ def split_dataset(combined_text, labels, test_size, random_state):
     logging.info(f"Splitting dataset into training and testing sets with test size {test_size}")
     return train_test_split(combined_text, labels, test_size=test_size, random_state=random_state)
 
-
 def vectorize_text(text_train, text_test, max_features):
     """
     Vectorize the text data using TF-IDF.
@@ -60,7 +60,6 @@ def vectorize_text(text_train, text_test, max_features):
     X_train_tfidf = tfidf_vectorizer.fit_transform(text_train)
     X_test_tfidf = tfidf_vectorizer.transform(text_test)
     return X_train_tfidf, X_test_tfidf, tfidf_vectorizer
-
 
 def train_random_forest(X_train, y_train, n_estimators, random_state):
     """
@@ -109,33 +108,38 @@ def main():
 
     # Create output directory
     create_output_directory(path)
-     # Load dataset
+
+    # Load dataset
     dataset = load_dataset(file_path, delimiter, header, lineterminator)
-    
+
     # Separate questions and answers
     questions = dataset.iloc[:, 0].values.tolist()
     answers = dataset.iloc[:, 1].values.tolist()
 
     # Combine questions and answers
     combined_text = combine_questions_answers(questions, answers)
-    
-     # Encode labels
+
+    # Encode labels
     labels, label_encoder = encode_labels(answers)
-    
-     # Split the data into training and testing sets
+
+    # Split the data into training and testing sets
     X_train, X_test, y_train, y_test = split_dataset(combined_text, labels, test_size, random_state)
+
     # Vectorize the text data
     X_train_tfidf, X_test_tfidf, tfidf_vectorizer = vectorize_text(X_train, X_test, max_features)
+
     # Train RandomForest model
     rf_classifier = train_random_forest(X_train_tfidf, y_train, n_estimators, random_state)
 
     # Evaluate the model
     evaluate_model(rf_classifier, X_test_tfidf, y_test, label_encoder)
 
-       # Save the model, vectorizer, and label encoder
+    # Save the model, vectorizer, and label encoder
     save_model(rf_classifier, tfidf_vectorizer, label_encoder, path)
-    if __name__ == "__main__":
-    main()  
+
+if __name__ == "__main__":
+    main()
+
 X_train, X_test, y_train, y_test = train_test_split(combined_text, labels, test_size=0.2, random_state=42)
 
 
