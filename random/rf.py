@@ -115,6 +115,10 @@ def main():
     # Separate questions and answers
     questions = dataset.iloc[:, 0].values.tolist()
     answers = dataset.iloc[:, 1].values.tolist()
+
+    # Combine questions and answers
+    combined_text = combine_questions_answers(questions, answers)
+    
 X_train, X_test, y_train, y_test = train_test_split(combined_text, labels, test_size=0.2, random_state=42)
 
 
