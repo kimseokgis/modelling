@@ -21,10 +21,12 @@ def load_dataset(file_path, delimiter, header, lineterminator):
     """
     Load the dataset from a CSV file.
     """
-        logging.info(f"Loading dataset from: {file_path}")
+    logging.info(f"Loading dataset from: {file_path}")
     dataset = pd.read_csv(file_path, delimiter=delimiter, header=header, lineterminator=lineterminator)
+    if dataset.shape[1] < 2:
+        raise ValueError("The dataset does not have the expected number of columns.")
+    return dataset
 
-    
 combined_text = [q + " " + a for q, a in zip(questions, answers)]
 
 label_encoder = LabelEncoder()
