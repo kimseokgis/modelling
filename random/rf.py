@@ -140,9 +140,6 @@ def main():
 if __name__ == "__main__":
     main()
 
-X_train_tfidf = tfidf_vectorizer.fit_transform(X_train)
-X_test_tfidf = tfidf_vectorizer.transform(X_test)
-
 rf_classifier = RandomForestClassifier(n_estimators=100, random_state=42)
 rf_classifier.fit(X_train_tfidf, y_train)
 
