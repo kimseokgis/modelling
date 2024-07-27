@@ -47,6 +47,11 @@ def split_dataset(combined_text, labels, test_size, random_state):
     """
     Split the dataset into training and testing sets.
     """
+    logging.info(f"Splitting dataset into training and testing sets with test size {test_size}")
+    return train_test_split(combined_text, labels, test_size=test_size, random_state=random_state)
+
+X_train, X_test, y_train, y_test = train_test_split(combined_text, labels, test_size=0.2, random_state=42)
+
 tfidf_vectorizer = TfidfVectorizer(max_features=1000)
 X_train_tfidf = tfidf_vectorizer.fit_transform(X_train)
 X_test_tfidf = tfidf_vectorizer.transform(X_test)
