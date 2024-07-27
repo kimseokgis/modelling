@@ -75,6 +75,8 @@ def evaluate_model(model, X_test, y_test, label_encoder):
     """
     Evaluate the model and print the accuracy and classification report.
     """
+     logging.info("Evaluating model")
+    y_pred = model.predict(X_test)
 
 X_train, X_test, y_train, y_test = train_test_split(combined_text, labels, test_size=0.2, random_state=42)
 
