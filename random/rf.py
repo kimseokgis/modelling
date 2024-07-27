@@ -45,3 +45,6 @@ import pickle
 
 with open(os.path.join(path, 'rf_classifier.pkl'), 'wb') as model_file:
     pickle.dump(rf_classifier, model_file)
+    
+with open(os.path.join(path, 'tfidf_vectorizer.pkl'), 'wb') as vectorizer_file:
+    pickle.dump(tfidf_vectorizer, vectorizer_file)
