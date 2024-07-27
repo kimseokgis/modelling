@@ -83,16 +83,16 @@ def evaluate_model(model, X_test, y_test, label_encoder):
     logging.info("Classification Report:\n" + report)
     return accuracy, report
 
-def save_model(model, vectorizer, label_encoder, path):
+ef save_model(model, vectorizer, label_encoder, path):
     """
     Save the model, vectorizer, and label encoder to disk.
     """
-     logging.info("Saving model, vectorizer, and label encoder")
+    logging.info("Saving model, vectorizer, and label encoder")
     with open(os.path.join(path, 'rf_classifier.pkl'), 'wb') as model_file:
         pickle.dump(model, model_file)
-          with open(os.path.join(path, 'tfidf_vectorizer.pkl'), 'wb') as vectorizer_file:
+    with open(os.path.join(path, 'tfidf_vectorizer.pkl'), 'wb') as vectorizer_file:
         pickle.dump(vectorizer, vectorizer_file)
-         with open(os.path.join(path, 'label_encoder.pkl'), 'wb') as encoder_file:
+    with open(os.path.join(path, 'label_encoder.pkl'), 'wb') as encoder_file:
         pickle.dump(label_encoder, encoder_file)
 
 
