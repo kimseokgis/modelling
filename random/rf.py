@@ -10,10 +10,11 @@ from sklearn.preprocessing import LabelEncoder
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
+def create_output_directory(path):
+    """
+    Create the output directory jika tidak ditemukan
+    """
 
-dataset = pd.read_csv('data.csv', delimiter="|", header=None, lineterminator='\n')
-if dataset.shape[1] < 2:
-    raise ValueError("The dataset does not have the expected number of columns.")
 
 questions = dataset.iloc[:, 0].values.tolist()
 answers = dataset.iloc[:, 1].values.tolist()
