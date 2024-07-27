@@ -43,10 +43,10 @@ def encode_labels(answers):
     labels = label_encoder.fit_transform(answers)
     return labels, label_encoder
 
-# Split the data into training and testing sets
-
-X_train, X_test, y_train, y_test = train_test_split(combined_text, labels, test_size=0.2, random_state=42)
-
+def split_dataset(combined_text, labels, test_size, random_state):
+    """
+    Split the dataset into training and testing sets.
+    """
 tfidf_vectorizer = TfidfVectorizer(max_features=1000)
 X_train_tfidf = tfidf_vectorizer.fit_transform(X_train)
 X_test_tfidf = tfidf_vectorizer.transform(X_test)
