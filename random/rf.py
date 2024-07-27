@@ -75,14 +75,13 @@ def evaluate_model(model, X_test, y_test, label_encoder):
     """
     Evaluate the model and print the accuracy and classification report.
     """
-     logging.info("Evaluating model")
+    logging.info("Evaluating model")
     y_pred = model.predict(X_test)
-accuracy = accuracy_score(y_test, y_pred)
+    accuracy = accuracy_score(y_test, y_pred)
     report = classification_report(y_test, y_pred, target_names=label_encoder.classes_)
     logging.info(f"Accuracy: {accuracy}")
     logging.info("Classification Report:\n" + report)
- return accuracy, report
-
+    return accuracy, report
 def save_model(model, vectorizer, label_encoder, path):
     """
     Save the model, vectorizer, and label encoder to disk.
