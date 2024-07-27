@@ -33,3 +33,6 @@ rf_classifier = RandomForestClassifier(n_estimators=100, random_state=42)
 rf_classifier.fit(X_train_tfidf, y_train)
 
 y_pred = rf_classifier.predict(X_test_tfidf)
+
+accuracy = accuracy_score(y_test, y_pred)
+report = classification_report(y_test, y_pred, target_names=label_encoder.classes_)
