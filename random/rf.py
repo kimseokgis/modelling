@@ -83,7 +83,10 @@ accuracy = accuracy_score(y_test, y_pred)
     logging.info("Classification Report:\n" + report)
  return accuracy, report
 
-
+def save_model(model, vectorizer, label_encoder, path):
+    """
+    Save the model, vectorizer, and label encoder to disk.
+    """
 
 
 X_train, X_test, y_train, y_test = train_test_split(combined_text, labels, test_size=0.2, random_state=42)
