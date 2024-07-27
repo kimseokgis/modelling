@@ -140,7 +140,6 @@ def main():
 if __name__ == "__main__":
     main()
 
-tfidf_vectorizer = TfidfVectorizer(max_features=1000)
 X_train_tfidf = tfidf_vectorizer.fit_transform(X_train)
 X_test_tfidf = tfidf_vectorizer.transform(X_test)
 
