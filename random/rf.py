@@ -132,7 +132,8 @@ def main():
     # Evaluate the model
     evaluate_model(rf_classifier, X_test_tfidf, y_test, label_encoder)
 
-    
+       # Save the model, vectorizer, and label encoder
+    save_model(rf_classifier, tfidf_vectorizer, label_encoder, path)  
 X_train, X_test, y_train, y_test = train_test_split(combined_text, labels, test_size=0.2, random_state=42)
 
 
