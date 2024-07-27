@@ -126,6 +126,8 @@ def main():
     X_train, X_test, y_train, y_test = split_dataset(combined_text, labels, test_size, random_state)
     # Vectorize the text data
     X_train_tfidf, X_test_tfidf, tfidf_vectorizer = vectorize_text(X_train, X_test, max_features)
+    # Train RandomForest model
+    rf_classifier = train_random_forest(X_train_tfidf, y_train, n_estimators, random_state)
 
 
     
