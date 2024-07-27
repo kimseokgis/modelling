@@ -38,7 +38,8 @@ def encode_labels(answers):
     """
     Encode the labels using LabelEncoder.
     """
-
+logging.info("Encoding labels")
+    label_encoder = LabelEncoder()
 # Split the data into training and testing sets
 
 X_train, X_test, y_train, y_test = train_test_split(combined_text, labels, test_size=0.2, random_state=42)
