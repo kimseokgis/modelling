@@ -10,3 +10,9 @@ from sklearn.preprocessing import LabelEncoder
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+
+
+def load_pickle(file_path):
+    """
+    Load a pickle file from the specified path.
+    """
