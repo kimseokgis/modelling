@@ -83,7 +83,7 @@ def evaluate_model(model, X_test, y_test, label_encoder):
     logging.info("Classification Report:\n" + report)
     return accuracy, report
 
-ef save_model(model, vectorizer, label_encoder, path):
+def save_model(model, vectorizer, label_encoder, path):
     """
     Save the model, vectorizer, and label encoder to disk.
     """
