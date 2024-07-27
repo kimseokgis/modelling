@@ -8,3 +8,5 @@ from sklearn.preprocessing import LabelEncoder
 
 path = "output_dir_14k/"
 os.makedirs(path, exist_ok=True)
+
+dataset = pd.read_csv('data.csv', delimiter="|", header=None, lineterminator='\n')
