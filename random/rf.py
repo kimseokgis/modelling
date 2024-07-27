@@ -66,7 +66,7 @@ def train_random_forest(X_train, y_train, n_estimators, random_state):
     """
     Train a RandomForestClassifier.
     """
- logging.info(f"Training RandomForestClassifier with {n_estimators} estimators")
+    logging.info(f"Training RandomForestClassifier with {n_estimators} estimators")
     rf_classifier = RandomForestClassifier(n_estimators=n_estimators, random_state=random_state)
     rf_classifier.fit(X_train, y_train)
     return rf_classifier
