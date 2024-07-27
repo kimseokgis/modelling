@@ -100,14 +100,15 @@ def main():
     path = "output_dir_14k/"
     file_path = 'data.csv'
     delimiter = "|"
-    header = None   
+    header = None
     lineterminator = '\n'
     test_size = 0.2
     random_state = 42
     max_features = 1000
     n_estimators = 100
 
-create_output_directory(path)
+    # Create output directory
+    create_output_directory(path)
 
 X_train, X_test, y_train, y_test = train_test_split(combined_text, labels, test_size=0.2, random_state=42)
 
