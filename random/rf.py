@@ -129,6 +129,8 @@ def main():
     # Train RandomForest model
     rf_classifier = train_random_forest(X_train_tfidf, y_train, n_estimators, random_state)
 
+    # Evaluate the model
+    evaluate_model(rf_classifier, X_test_tfidf, y_test, label_encoder)
 
     
 X_train, X_test, y_train, y_test = train_test_split(combined_text, labels, test_size=0.2, random_state=42)
