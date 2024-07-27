@@ -15,4 +15,8 @@ if dataset.shape[1] < 2:
 
 questions = dataset.iloc[:, 0].values.tolist()
 answers = dataset.iloc[:, 1].values.tolist()
+
 combined_text = [q + " " + a for q, a in zip(questions, answers)]
+
+label_encoder = LabelEncoder()
+labels = label_encoder.fit_transform(answers)
