@@ -90,6 +90,8 @@ def save_model(model, vectorizer, label_encoder, path):
      logging.info("Saving model, vectorizer, and label encoder")
     with open(os.path.join(path, 'rf_classifier.pkl'), 'wb') as model_file:
         pickle.dump(model, model_file)
+          with open(os.path.join(path, 'tfidf_vectorizer.pkl'), 'wb') as vectorizer_file:
+        pickle.dump(vectorizer, vectorizer_file)
 
 
 X_train, X_test, y_train, y_test = train_test_split(combined_text, labels, test_size=0.2, random_state=42)
