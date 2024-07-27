@@ -17,9 +17,10 @@ def create_output_directory(path):
     logging.info(f"Creating output directory at: {path}")
     os.makedirs(path, exist_ok=True)
 
-questions = dataset.iloc[:, 0].values.tolist()
-answers = dataset.iloc[:, 1].values.tolist()
-
+def load_dataset(file_path, delimiter, header, lineterminator):
+    """
+    Load the dataset from a CSV file.
+    """
 combined_text = [q + " " + a for q, a in zip(questions, answers)]
 
 label_encoder = LabelEncoder()
