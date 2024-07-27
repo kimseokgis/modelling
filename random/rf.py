@@ -30,6 +30,11 @@ def combine_questions_answers(questions, answers):
     """
     Combine questions and answers into a single string for each pair.
     """
+    
+    logging.info("Combining questions and answers")
+    return [f"{q} {a}" for q, a in zip(questions, answers)]
+
+
 label_encoder = LabelEncoder()
 labels = label_encoder.fit_transform(answers)
 
