@@ -133,10 +133,9 @@ def main():
     evaluate_model(rf_classifier, X_test_tfidf, y_test, label_encoder)
 
        # Save the model, vectorizer, and label encoder
-    save_model(rf_classifier, tfidf_vectorizer, label_encoder, path)  
-X_train, X_test, y_train, y_test = train_test_split(combined_text, labels, test_size=0.2, random_state=42)
-
-
+    save_model(rf_classifier, tfidf_vectorizer, label_encoder, path)
+    if __name__ == "__main__":
+    main()  
 tfidf_vectorizer = TfidfVectorizer(max_features=1000)
 X_train_tfidf = tfidf_vectorizer.fit_transform(X_train)
 X_test_tfidf = tfidf_vectorizer.transform(X_test)
