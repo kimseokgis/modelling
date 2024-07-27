@@ -14,7 +14,8 @@ def create_output_directory(path):
     """
     Create the output directory jika tidak ditemukan
     """
-
+    logging.info(f"Creating output directory at: {path}")
+    os.makedirs(path, exist_ok=True)
 
 questions = dataset.iloc[:, 0].values.tolist()
 answers = dataset.iloc[:, 1].values.tolist()
