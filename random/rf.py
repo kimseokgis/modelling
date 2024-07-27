@@ -50,6 +50,12 @@ def split_dataset(combined_text, labels, test_size, random_state):
     logging.info(f"Splitting dataset into training and testing sets with test size {test_size}")
     return train_test_split(combined_text, labels, test_size=test_size, random_state=random_state)
 
+
+def vectorize_text(text_train, text_test, max_features):
+    """
+    Vectorize the text data using TF-IDF.
+    """
+    
 X_train, X_test, y_train, y_test = train_test_split(combined_text, labels, test_size=0.2, random_state=42)
 
 tfidf_vectorizer = TfidfVectorizer(max_features=1000)
