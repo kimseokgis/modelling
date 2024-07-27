@@ -122,6 +122,10 @@ def main():
      # Encode labels
     labels, label_encoder = encode_labels(answers)
     
+     # Split the data into training and testing sets
+    X_train, X_test, y_train, y_test = split_dataset(combined_text, labels, test_size, random_state)
+
+    
 X_train, X_test, y_train, y_test = train_test_split(combined_text, labels, test_size=0.2, random_state=42)
 
 
