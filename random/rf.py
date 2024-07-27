@@ -111,7 +111,8 @@ def main():
     create_output_directory(path)
      # Load dataset
     dataset = load_dataset(file_path, delimiter, header, lineterminator)
-
+# Separate questions and answers
+    questions = dataset.iloc[:, 0].values.tolist()
 X_train, X_test, y_train, y_test = train_test_split(combined_text, labels, test_size=0.2, random_state=42)
 
 
