@@ -26,9 +26,10 @@ def load_dataset(file_path, delimiter, header, lineterminator):
     if dataset.shape[1] < 2:
         raise ValueError("The dataset does not have the expected number of columns.")
     return dataset
-
-combined_text = [q + " " + a for q, a in zip(questions, answers)]
-
+def combine_questions_answers(questions, answers):
+    """
+    Combine questions and answers into a single string for each pair.
+    """
 label_encoder = LabelEncoder()
 labels = label_encoder.fit_transform(answers)
 
