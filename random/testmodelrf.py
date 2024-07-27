@@ -16,3 +16,5 @@ def load_pickle(file_path):
     """
     Load a pickle file from the specified path.
     """
+    with open(file_path, 'rb') as file:
+        return pickle.load(file)
