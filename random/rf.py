@@ -81,7 +81,13 @@ accuracy = accuracy_score(y_test, y_pred)
     report = classification_report(y_test, y_pred, target_names=label_encoder.classes_)
     logging.info(f"Accuracy: {accuracy}")
     logging.info("Classification Report:\n" + report)
+ return accuracy, report
+
+
+
+
 X_train, X_test, y_train, y_test = train_test_split(combined_text, labels, test_size=0.2, random_state=42)
+
 
 tfidf_vectorizer = TfidfVectorizer(max_features=1000)
 X_train_tfidf = tfidf_vectorizer.fit_transform(X_train)
