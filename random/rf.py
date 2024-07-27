@@ -20,3 +20,7 @@ combined_text = [q + " " + a for q, a in zip(questions, answers)]
 
 label_encoder = LabelEncoder()
 labels = label_encoder.fit_transform(answers)
+
+# Split the data into training and testing sets
+
+X_train, X_test, y_train, y_test = train_test_split(combined_text, labels, test_size=0.2, random_state=42)
