@@ -38,10 +38,11 @@ def encode_labels(answers):
     """
     Encode the labels using LabelEncoder.
     """
-logging.info("Encoding labels")
+    logging.info("Encoding labels")
     label_encoder = LabelEncoder()
-labels = label_encoder.fit_transform(answers)
+    labels = label_encoder.fit_transform(answers)
     return labels, label_encoder
+
 # Split the data into training and testing sets
 
 X_train, X_test, y_train, y_test = train_test_split(combined_text, labels, test_size=0.2, random_state=42)
