@@ -141,9 +141,7 @@ if __name__ == "__main__":
     main()
 
 
-print(f"Accuracy: {accuracy}")
-print("Classification Report:")
-print(report)   
+
 
 import pickle
 
