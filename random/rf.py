@@ -62,6 +62,12 @@ def vectorize_text(text_train, text_test, max_features):
     return X_train_tfidf, X_test_tfidf, tfidf_vectorizer
 
 
+def train_random_forest(X_train, y_train, n_estimators, random_state):
+    """
+    Train a RandomForestClassifier.
+    """
+
+    
 X_train, X_test, y_train, y_test = train_test_split(combined_text, labels, test_size=0.2, random_state=42)
 
 tfidf_vectorizer = TfidfVectorizer(max_features=1000)
