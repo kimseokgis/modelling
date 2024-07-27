@@ -28,3 +28,6 @@ X_train, X_test, y_train, y_test = train_test_split(combined_text, labels, test_
 tfidf_vectorizer = TfidfVectorizer(max_features=1000)
 X_train_tfidf = tfidf_vectorizer.fit_transform(X_train)
 X_test_tfidf = tfidf_vectorizer.transform(X_test)
+
+rf_classifier = RandomForestClassifier(n_estimators=100, random_state=42)
+rf_classifier.fit(X_train_tfidf, y_train)
