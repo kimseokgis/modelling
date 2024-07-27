@@ -55,12 +55,11 @@ def vectorize_text(text_train, text_test, max_features):
     """
     Vectorize the text data using TF-IDF.
     """
-        logging.info(f"Vectorizing text data with max features {max_features}")
+    logging.info(f"Vectorizing text data with max features {max_features}")
     tfidf_vectorizer = TfidfVectorizer(max_features=max_features)
- X_train_tfidf = tfidf_vectorizer.fit_transform(text_train)
+    X_train_tfidf = tfidf_vectorizer.fit_transform(text_train)
     X_test_tfidf = tfidf_vectorizer.transform(text_test)
     return X_train_tfidf, X_test_tfidf, tfidf_vectorizer
-
 
 
 X_train, X_test, y_train, y_test = train_test_split(combined_text, labels, test_size=0.2, random_state=42)
