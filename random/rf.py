@@ -142,11 +142,5 @@ if __name__ == "__main__":
 
 
 
-
-
-
-with open(os.path.join(path, 'tfidf_vectorizer.pkl'), 'wb') as vectorizer_file:
-    pickle.dump(tfidf_vectorizer, vectorizer_file)
-
 with open(os.path.join(path, 'label_encoder.pkl'), 'wb') as encoder_file:
     pickle.dump(label_encoder, encoder_file)
