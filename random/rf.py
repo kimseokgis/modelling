@@ -10,3 +10,5 @@ path = "output_dir_14k/"
 os.makedirs(path, exist_ok=True)
 
 dataset = pd.read_csv('data.csv', delimiter="|", header=None, lineterminator='\n')
+if dataset.shape[1] < 2:
+    raise ValueError("The dataset does not have the expected number of columns.")
