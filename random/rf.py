@@ -8,8 +8,8 @@ from sklearn.metrics import accuracy_score, classification_report
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
 
-path = "output_dir_14k/"
-os.makedirs(path, exist_ok=True)
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+
 
 dataset = pd.read_csv('data.csv', delimiter="|", header=None, lineterminator='\n')
 if dataset.shape[1] < 2:
