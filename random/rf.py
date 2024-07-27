@@ -12,3 +12,6 @@ os.makedirs(path, exist_ok=True)
 dataset = pd.read_csv('data.csv', delimiter="|", header=None, lineterminator='\n')
 if dataset.shape[1] < 2:
     raise ValueError("The dataset does not have the expected number of columns.")
+
+questions = dataset.iloc[:, 0].values.tolist()
+answers = dataset.iloc[:, 1].values.tolist()
