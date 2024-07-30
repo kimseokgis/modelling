@@ -1,5 +1,3 @@
-    Evaluate the model's performance on the test set and log the results.
-    """
     logging.info("Evaluating model on test data")
     y_pred = model.predict(X_test)
     
