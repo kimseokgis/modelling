@@ -1,7 +1,3 @@
-    logging.info(f"Loading dataset from: {file_path}")
-    dataset = pd.read_csv(file_path, delimiter=delimiter, header=header, lineterminator=lineterminator)
-    if dataset.shape[1] < 2:
-        raise ValueError("The dataset does not have the expected number of columns.")
     return dataset
 
 def combine_questions_answers(questions, answers):
