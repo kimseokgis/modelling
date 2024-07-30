@@ -1,6 +1,3 @@
-def split_dataset(combined_text, labels, test_size, random_state):
-    """
-    Split the dataset into training and testing sets.
     """
     logging.info(f"Splitting dataset into training and testing sets with test size {test_size}")
     return train_test_split(combined_text, labels, test_size=test_size, random_state=random_state)
