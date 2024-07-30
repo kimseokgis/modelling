@@ -1,6 +1,3 @@
-
-    """
-    Evaluate the model and print the accuracy and classification report.
     """
     logging.info("Evaluating model")
     y_pred = model.predict(X_test)
