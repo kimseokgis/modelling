@@ -7,8 +7,7 @@ def main():
     
     
     
-    # Prepare test data
-    X_test_tfidf, y_test = prepare_test_data(test_dataset, tfidf_vectorizer, label_encoder)
+    
     
     # Evaluate the model
     accuracy, report, conf_matrix = evaluate_model(rf_classifier, X_test_tfidf, y_test, label_encoder)
