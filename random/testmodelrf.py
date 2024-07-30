@@ -1,7 +1,3 @@
-    y_test = label_encoder.transform(answers)
-    
-    return X_test_tfidf, y_test
-
 def evaluate_model(model, X_test, y_test, label_encoder):
     """
     Evaluate the model's performance on the test set and log the results.
