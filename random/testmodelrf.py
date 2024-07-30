@@ -1,5 +1,4 @@
-    logging.info("Evaluating model on test data")
-    y_pred = model.predict(X_test)
+
     
     accuracy = accuracy_score(y_test, y_pred)
     report = classification_report(y_test, y_pred, target_names=label_encoder.classes_)
