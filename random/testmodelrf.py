@@ -1,6 +1,3 @@
-t_names=label_encoder.classes_)
-    conf_matrix = confusion_matrix(y_test, y_pred)
-    
     logging.info(f"Accuracy: {accuracy}")
     logging.info("Classification Report:\n" + report)
     logging.info(f"Confusion Matrix:\n{conf_matrix}")
