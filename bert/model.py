@@ -1,9 +1,7 @@
 
 
 
-# Load the dataset
-def filter_valid_rows(row):
-    return len(row) == 2
+
 
 with open('../Stacked-LSTM/qa.csv', 'r', encoding='utf-8') as file:
     reader = csv.reader(file, delimiter='|')
