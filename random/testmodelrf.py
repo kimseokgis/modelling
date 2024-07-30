@@ -1,6 +1,3 @@
-    """
-    logging.info(f"Loading test dataset from: {file_path}")
-    return pd.read_csv(file_path, delimiter=delimiter, header=header, lineterminator=lineterminator)
 def prepare_test_data(test_dataset, tfidf_vectorizer, label_encoder):
     """
     Prepare test data by combining questions and answers, vectorizing text, and encoding labels.
