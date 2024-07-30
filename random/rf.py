@@ -1,6 +1,4 @@
-    return rf_classifier
 
-def evaluate_model(model, X_test, y_test, label_encoder):
     """
     Evaluate the model and print the accuracy and classification report.
     """
