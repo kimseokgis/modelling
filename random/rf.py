@@ -8,8 +8,7 @@ def main():
 
     
 
-    # Combine questions and answers
-    combined_text = combine_questions_answers(questions, answers)
+    
 
     # Encode labels
     labels, label_encoder = encode_labels(answers)
