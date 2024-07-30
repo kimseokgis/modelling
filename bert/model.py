@@ -13,8 +13,7 @@
     
 
 # Compile the model
-optimizer = tf.keras.optimizers.Adam(learning_rate=2e-5, epsilon=1e-8)
-loss_fn = tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True)
+
 
 # Training loop
 epochs = 400
