@@ -1,5 +1,3 @@
-    # Load saved model, vectorizer, and label encoder
-    logging.info("Loading saved model, vectorizer, and label encoder")
     rf_classifier = load_pickle(model_path)
     tfidf_vectorizer = load_pickle(vectorizer_path)
     label_encoder = load_pickle(encoder_path)
