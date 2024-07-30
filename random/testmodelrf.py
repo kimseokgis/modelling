@@ -1,3 +1,9 @@
+                Evaluate the model's performance on the test set and log the results.
+    """
+    logging.info("Evaluating model on test data")
+    y_pred = model.predict(X_test)
+    
+    accuracy = accuracy_score(y_test, y_pred)
             report = classification_report(y_test, y_pred, target_names=label_encoder.classes_)
     conf_matrix = confusion_matrix(y_test, y_pred)
     
