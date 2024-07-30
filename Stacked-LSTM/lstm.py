@@ -12,9 +12,7 @@ dataset = pd.read_csv('data.csv', delimiter="|", header=None, lineterminator='\n
 
 
 
-def save_tokenizer(tokenizer):
-    with open('output_dir_14k/tokenizer.pickle', 'wb') as handle:
-        pickle.dump(tokenizer, handle, protocol=pickle.HIGHEST_PROTOCOL)
+
 
 def save_config(key, value):
     data = {}
