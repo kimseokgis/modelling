@@ -1,5 +1,3 @@
-    Load the dataset from a CSV file.
-    """
     logging.info(f"Loading dataset from: {file_path}")
     dataset = pd.read_csv(file_path, delimiter=delimiter, header=header, lineterminator=lineterminator)
     if dataset.shape[1] < 2:
