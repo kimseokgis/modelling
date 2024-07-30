@@ -4,8 +4,7 @@ def main():
     
     
 
-    # Load dataset
-    dataset = load_dataset(file_path, delimiter, header, lineterminator)
+    
 
     # Separate questions and answers
     questions = dataset.iloc[:, 0].values.tolist()
