@@ -1,5 +1,3 @@
-# model
-
 import tensorflow as tf
 from transformers import TFBertForSequenceClassification, BertTokenizer
 import pandas as pd
@@ -36,7 +34,6 @@ for question in df['question']:
         return_attention_mask=True,
         return_tensors='tf'
     )
-
     input_ids.append(encoded['input_ids'])
     attention_masks.append(encoded['attention_mask'])
 
@@ -68,8 +65,8 @@ model = TFBertForSequenceClassification.from_pretrained('indobenchmark/indobert-
 @tf.function
 def train_step(model, optimizer, loss_fn, x, y):
     with tf.GradientTape() as tape:
-    logits = model(x, training=True).logits
-    loss = loss_fn(y, logits)
+        logits = model(x, training=True).logits
+        loss = loss_fn(y, logits)
     gradients = tape.gradient(loss, model.trainable_variables)
     optimizer.apply_gradients(zip(gradients, model.trainable_variables))
     return loss
