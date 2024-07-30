@@ -1,5 +1,3 @@
-    Vectorize the text data using TF-IDF.
-    """
     logging.info(f"Vectorizing text data with max features {max_features}")
     tfidf_vectorizer = TfidfVectorizer(max_features=max_features)
     X_train_tfidf = tfidf_vectorizer.fit_transform(text_train)
