@@ -1,7 +1,3 @@
-    delimiter = "|"
-    header = None
-    lineterminator = '\n'
-
     # Load saved model, vectorizer, and label encoder
     logging.info("Loading saved model, vectorizer, and label encoder")
     rf_classifier = load_pickle(model_path)
