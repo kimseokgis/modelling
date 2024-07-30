@@ -39,3 +39,7 @@ for question in df['question']:
 
     input_ids.append(encoded['input_ids'])
     attention_masks.append(encoded['attention_mask'])
+
+input_ids = tf.concat(input_ids, axis=0)
+attention_masks = tf.concat(attention_masks, axis=0)
+labels = tf.constant(df['encoded_answer'].values)
