@@ -68,3 +68,5 @@ model = TFBertForSequenceClassification.from_pretrained('indobenchmark/indobert-
 @tf.function
 def train_step(model, optimizer, loss_fn, x, y):
     with tf.GradientTape() as tape:
+    logits = model(x, training=True).logits
+        loss = loss_fn(y, logits)
