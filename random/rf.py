@@ -1,6 +1,3 @@
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
-
-def create_output_directory(path):
     """
     Create the output directory if it does not exist.
     """
