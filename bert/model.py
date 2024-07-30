@@ -1,6 +1,5 @@
 
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import LabelEncoder
+
 
 # Load the dataset
 def filter_valid_rows(row):
