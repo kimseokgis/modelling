@@ -10,12 +10,7 @@ dataset = pd.read_csv('data.csv', delimiter="|", header=None, lineterminator='\n
 
 
 
-# Split the dataset into questions and answers
-questions_train = dataset.iloc[:1794, 0].values.tolist()
-answers_train = dataset.iloc[:1794, 1].values.tolist()
 
-questions_test = dataset.iloc[1794:, 0].values.tolist()
-answers_test = dataset.iloc[1794:, 1].values.tolist()
 
 def save_tokenizer(tokenizer):
     with open('output_dir_14k/tokenizer.pickle', 'wb') as handle:
