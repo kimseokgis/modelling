@@ -1,7 +1,3 @@
-    """
-    Combine questions and answers into a single string for each pair.
-    """
-    logging.info("Combining questions and answers")
     return [f"{q} {a}" for q, a in zip(questions, answers)]
 
 def encode_labels(answers):
