@@ -33,3 +33,7 @@ for question in df['question']:
         max_length=64,
         padding='max_length',
         truncation=True,
+        return_attention_mask=True,
+        return_tensors='tf'
+    )
+
