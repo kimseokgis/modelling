@@ -1,8 +1,6 @@
 def main():
     
-    delimiter = "|"
-    header = None
-    lineterminator = '\n'
+    
     test_size = 0.2
             random_state = 42
     max_features = 1000
