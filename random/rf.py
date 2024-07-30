@@ -1,7 +1,3 @@
-    return train_test_split(combined_text, labels, test_size=test_size, random_state=random_state)
-
-def vectorize_text(text_train, text_test, max_features):
-    """
     Vectorize the text data using TF-IDF.
     """
     logging.info(f"Vectorizing text data with max features {max_features}")
