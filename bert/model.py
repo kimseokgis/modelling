@@ -16,3 +16,7 @@ with open('../Stacked-LSTM/qa.csv', 'r', encoding='utf-8') as file:
     filtered_rows = [row for row in reader if filter_valid_rows(row)]
 
 df = pd.DataFrame(filtered_rows, columns=['question', 'answer'])
+
+# Encode the labels (answers) to numeric values
+label_encoder = LabelEncoder()
+df['encoded_answer'] = label_encoder.fit_transform(df['answer'])
