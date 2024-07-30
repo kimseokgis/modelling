@@ -1,5 +1,3 @@
-    vectorizer_path = 'output_dir_14k/tfidf_vectorizer.pkl'
-    encoder_path = 'output_dir_14k/label_encoder.pkl'
     delimiter = "|"
     header = None
     lineterminator = '\n'
