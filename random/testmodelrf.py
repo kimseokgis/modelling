@@ -1,5 +1,3 @@
-def evaluate_model(model, X_test, y_test, label_encoder):
-    """
     Evaluate the model's performance on the test set and log the results.
     """
     logging.info("Evaluating model on test data")
