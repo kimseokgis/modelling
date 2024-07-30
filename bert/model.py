@@ -25,3 +25,8 @@ df['encoded_answer'] = label_encoder.fit_transform(df['answer'])
 tokenizer = BertTokenizer.from_pretrained('indobenchmark/indobert-base-p2')
 input_ids = []
 attention_masks = []
+
+for question in df['question']:
+    encoded = tokenizer.encode_plus(
+        question,
+        add_special_tokens=True,
