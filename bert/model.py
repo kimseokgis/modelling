@@ -6,7 +6,7 @@
 
 
 # Load model
-model = TFBertForSequenceClassification.from_pretrained('indobenchmark/indobert-base-p2', num_labels=len(label_encoder.classes_))
+
 
 # Custom train step
 @tf.function
