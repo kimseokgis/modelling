@@ -1,10 +1,7 @@
 
 
 
-# Prepare the dataset
-tokenizer = BertTokenizer.from_pretrained('indobenchmark/indobert-base-p2')
-input_ids = []
-attention_masks = []
+
 
 for question in df['question']:
     encoded = tokenizer.encode_plus(
