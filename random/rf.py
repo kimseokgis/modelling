@@ -1,5 +1,3 @@
-def load_dataset(file_path, delimiter, header, lineterminator):
-    """
     Load the dataset from a CSV file.
     """
     logging.info(f"Loading dataset from: {file_path}")
