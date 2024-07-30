@@ -1,5 +1,3 @@
-    Prepare test data by combining questions and answers, vectorizing text, and encoding labels.
-    """
     questions = test_dataset.iloc[:, 0].values.tolist()
     answers = test_dataset.iloc[:, 1].values.tolist()
     combined_text = [f"{q} {a}" for q, a in zip(questions, answers)]
