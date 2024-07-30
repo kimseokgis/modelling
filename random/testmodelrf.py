@@ -1,5 +1,3 @@
-import os
-import pickle
 import logging
 import pandas as pd
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
