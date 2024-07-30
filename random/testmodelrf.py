@@ -6,7 +6,7 @@ def evaluate_model(model, X_test, y_test, label_encoder):
     
     
     
-    return accuracy, report, conf_matrix
+    
         
         def main():
     # Set parameters
