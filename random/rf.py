@@ -1,6 +1,3 @@
-    return X_train_tfidf, X_test_tfidf, tfidf_vectorizer
-
-def train_random_forest(X_train, y_train, n_estimators, random_state):
     """
     Train a RandomForestClassifier.
     """
