@@ -9,11 +9,7 @@
 
 
 # Custom train step
-@tf.function
-def train_step(model, optimizer, loss_fn, x, y):
-    with tf.GradientTape() as tape:
-        logits = model(x, training=True).logits
-        loss = loss_fn(y, logits)
+
     gradients = tape.gradient(loss, model.trainable_variables)
     optimizer.apply_gradients(zip(gradients, model.trainable_variables))
     return loss
