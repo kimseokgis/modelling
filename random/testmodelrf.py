@@ -5,8 +5,7 @@ def main():
     # Load saved model, vectorizer, and label encoder
     
     
-    # Load test dataset
-    test_dataset = load_test_dataset(test_file_path, delimiter, header, lineterminator)
+    
     
     # Prepare test data
     X_test_tfidf, y_test = prepare_test_data(test_dataset, tfidf_vectorizer, label_encoder)
