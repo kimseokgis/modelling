@@ -1,5 +1,3 @@
-def main():
-    # Set parameters
     test_file_path = 'test_data.csv'
     model_path = 'output_dir_14k/rf_classifier.pkl'
     vectorizer_path = 'output_dir_14k/tfidf_vectorizer.pkl'
