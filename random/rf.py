@@ -1,6 +1,3 @@
-    """
-    Create the output directory if it does not exist.
-    """
     logging.info(f"Creating output directory at: {path}")
     os.makedirs(path, exist_ok=True)
 
