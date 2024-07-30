@@ -1,7 +1,3 @@
-    return accuracy, report
-
-def save_model(model, vectorizer, label_encoder, path):
-    """
     Save the model, vectorizer, and label encoder to disk.
     """
     logging.info("Saving model, vectorizer, and label encoder")
