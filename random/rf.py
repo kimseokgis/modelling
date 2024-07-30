@@ -1,6 +1,3 @@
-    create_output_directory(path)
-
-    # Load dataset
     dataset = load_dataset(file_path, delimiter, header, lineterminator)
 
     # Separate questions and answers
