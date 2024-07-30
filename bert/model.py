@@ -48,3 +48,8 @@ labels = tf.constant(df['encoded_answer'].values)
 train_inputs_idx, test_inputs_idx, train_masks_idx, test_masks_idx, train_labels_idx, test_labels_idx = train_test_split(
     range(len(input_ids)), range(len(attention_masks)), range(len(labels)), test_size=0.2, random_state=42
 )
+
+# Convert to tensors
+train_inputs = tf.gather(input_ids, train_inputs_idx)
+test_inputs = tf.gather(input_ids, test_inputs_idx)
+train_masks = tf.gather(attention_masks, train_masks_idx)
