@@ -1,3 +1,18 @@
+                    def prepare_test_data(test_dataset, tfidf_vectorizer, label_encoder):
+    """
+    Prepare test data by combining questions and answers, vectorizing text, and encoding labels.
+    """
+    questions = test_dataset.iloc[:, 0].values.tolist()
+    answers = test_dataset.iloc[:, 1].values.tolist()
+    combined_text = [f"{q} {a}" for q, a in zip(questions, answers)]
+    
+                    X_test_tfidf = tfidf_vectorizer.transform(combined_text)
+    y_test = label_encoder.transform(answers)
+    
+    return X_test_tfidf, y_test
+
+def evaluate_model(model, X_test, y_test, label_encoder):
+    """
                 Evaluate the model's performance on the test set and log the results.
     """
     logging.info("Evaluating model on test data")
