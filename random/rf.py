@@ -14,8 +14,7 @@ def main():
 
     
 
-    # Vectorize the text data
-    X_train_tfidf, X_test_tfidf, tfidf_vectorizer = vectorize_text(X_train, X_test, max_features)
+    
 
     # Train RandomForest model
     rf_classifier = train_random_forest(X_train_tfidf, y_train, n_estimators, random_state)
