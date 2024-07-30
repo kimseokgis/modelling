@@ -30,3 +30,6 @@ for question in df['question']:
     encoded = tokenizer.encode_plus(
         question,
         add_special_tokens=True,
+        max_length=64,
+        padding='max_length',
+        truncation=True,
