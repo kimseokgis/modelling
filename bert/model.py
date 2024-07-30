@@ -7,9 +7,7 @@ for question in df['question']:
     
     
 
-input_ids = tf.concat(input_ids, axis=0)
-attention_masks = tf.concat(attention_masks, axis=0)
-labels = tf.constant(df['encoded_answer'].values)
+
 
 # Split the dataset into training and test sets
 train_inputs_idx, test_inputs_idx, train_masks_idx, test_masks_idx, train_labels_idx, test_labels_idx = train_test_split(
