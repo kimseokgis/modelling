@@ -2,9 +2,7 @@ def evaluate_model(model, X_test, y_test, label_encoder):
     
     
     
-    accuracy = accuracy_score(y_test, y_pred)
-            report = classification_report(y_test, y_pred, target_names=label_encoder.classes_)
-    conf_matrix = confusion_matrix(y_test, y_pred)
+    
     
     logging.info(f"Accuracy: {accuracy}")
     logging.info("Classification Report:\n" + report)
