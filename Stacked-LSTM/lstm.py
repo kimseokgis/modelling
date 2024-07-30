@@ -14,15 +14,7 @@ dataset = pd.read_csv('data.csv', delimiter="|", header=None, lineterminator='\n
 
 
 
-def save_config(key, value):
-    data = {}
-    if os.path.exists(path + 'config.json'):
-        with open(path + 'config.json') as json_file:
-            data = json.load(json_file)
 
-    data[key] = value
-    with open(path + 'config.json', 'w') as outfile:
-        json.dump(data, outfile)
 
 def ensure_string(texts):
     return [str(text) for text in texts]
