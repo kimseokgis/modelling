@@ -1,7 +1,3 @@
-    return [f"{q} {a}" for q, a in zip(questions, answers)]
-
-def encode_labels(answers):
-    """
     Encode the labels using LabelEncoder.
     """
     logging.info("Encoding labels")
