@@ -1,6 +1,3 @@
-def load_test_dataset(file_path, delimiter, header, lineterminator):
-    """
-    Load the test dataset from a CSV file.
     """
     logging.info(f"Loading test dataset from: {file_path}")
     return pd.read_csv(file_path, delimiter=delimiter, header=header, lineterminator=lineterminator)
