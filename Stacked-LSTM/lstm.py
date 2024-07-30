@@ -8,9 +8,7 @@ os.makedirs(path, exist_ok=True)
 
 dataset = pd.read_csv('data.csv', delimiter="|", header=None, lineterminator='\n')
 
-# Ensure the dataset has at least two columns
-if dataset.shape[1] < 2:
-    raise ValueError("The dataset does not have the expected number of columns.")
+
 
 # Split the dataset into questions and answers
 questions_train = dataset.iloc[:1794, 0].values.tolist()
