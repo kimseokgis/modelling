@@ -9,13 +9,6 @@ def evaluate_model(model, X_test, y_test, label_encoder):
     
         
         def main():
-            
-    # Set parameters
-    
-        encoder_path = 'output_dir_14k/label_encoder.pkl'
-    delimiter = "|"
-    header = None
-    lineterminator = '\n'
 
     # Load saved model, vectorizer, and label encoder
     logging.info("Loading saved model, vectorizer, and label encoder")
