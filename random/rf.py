@@ -1,7 +1,5 @@
 def main():
-    # Set parameters
-    path = "output_dir_14k/"
-                file_path = 'data.csv'
+    
     delimiter = "|"
     header = None
     lineterminator = '\n'
