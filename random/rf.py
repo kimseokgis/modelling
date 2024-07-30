@@ -1,6 +1,3 @@
-    return dataset
-
-def combine_questions_answers(questions, answers):
     """
     Combine questions and answers into a single string for each pair.
     """
