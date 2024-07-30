@@ -20,5 +20,4 @@
         
 
 # Save the model
-model.save_pretrained('indobert_model')
-tokenizer.save_pretrained('indobert_model')
+
