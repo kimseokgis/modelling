@@ -1,5 +1,3 @@
-    logging.info(f"Accuracy: {accuracy}")
-    logging.info("Classification Report:\n" + report)
     return accuracy, report
 
 def save_model(model, vectorizer, label_encoder, path):
