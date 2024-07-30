@@ -1,6 +1,5 @@
-    Save the model, vectorizer, and label encoder to disk.
-    """
-    logging.info("Saving model, vectorizer, and label encoder")
+    rf_classifier.fit(X_train, y_train)
+    return rf_classifier
     with open(os.path.join(path, 'rf_classifier.pkl'), 'wb') as model_file:
         pickle.dump(model, model_file)
     with open(os.path.join(path, 'tfidf_vectorizer.pkl'), 'wb') as vectorizer_file:
