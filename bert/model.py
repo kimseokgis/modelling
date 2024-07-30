@@ -77,3 +77,8 @@ def train_step(model, optimizer, loss_fn, x, y):
 # Compile the model
 optimizer = tf.keras.optimizers.Adam(learning_rate=2e-5, epsilon=1e-8)
 loss_fn = tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True)
+
+# Training loop
+epochs = 400
+for epoch in range(epochs):
+    print(f"Epoch {epoch + 1}/{epochs}")
