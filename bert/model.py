@@ -1,14 +1,4 @@
 
-
-
-
-
-for question in df['question']:
-    
-    
-
-
-
 # Split the dataset into training and test sets
 train_inputs_idx, test_inputs_idx, train_masks_idx, test_masks_idx, train_labels_idx, test_labels_idx = train_test_split(
     range(len(input_ids)), range(len(attention_masks)), range(len(labels)), test_size=0.2, random_state=42
