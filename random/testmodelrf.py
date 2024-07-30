@@ -1,16 +1,6 @@
 def evaluate_model(model, X_test, y_test, label_encoder):
 
 def main():
-
-    # Load saved model, vectorizer, and label encoder
-    
-    
-    
-    
-    
-    
-    # Evaluate the model
-    accuracy, report, conf_matrix = evaluate_model(rf_classifier, X_test_tfidf, y_test, label_encoder)
     
     # Save evaluation results
     evaluation_path = "output_dir_14k/evaluation_results.txt"
