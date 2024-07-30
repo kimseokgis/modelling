@@ -2,10 +2,6 @@
 
 # Convert to tensors
 
-test_masks = tf.gather(attention_masks, test_masks_idx)
-train_labels = tf.gather(labels, train_labels_idx)
-test_labels = tf.gather(labels, test_labels_idx)
-
 # Convert to tf.data.Dataset
 train_dataset = tf.data.Dataset.from_tensor_slices(((train_inputs, train_masks), train_labels)).shuffle(len(train_labels)).batch(150)
 test_dataset = tf.data.Dataset.from_tensor_slices(((test_inputs, test_masks), test_labels)).batch(150)
