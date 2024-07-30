@@ -1,7 +1,3 @@
-    logging.info(f"Confusion Matrix:\n{conf_matrix}")
-    
-    return accuracy, report, conf_matrix
-
 def main():
     # Set parameters
     test_file_path = 'test_data.csv'
