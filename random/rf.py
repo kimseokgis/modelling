@@ -1,5 +1,3 @@
-import os
-import pandas as pd
 import pickle
 import logging
 from sklearn.feature_extraction.text import TfidfVectorizer
