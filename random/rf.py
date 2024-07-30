@@ -1,9 +1,7 @@
 def main():
     
     
-    test_size = 0.2
-            random_state = 42
-    max_features = 1000
+    
     n_estimators = 100
         # Create output directory
     create_output_directory(path)
