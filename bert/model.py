@@ -4,15 +4,7 @@
 
 
 for question in df['question']:
-    encoded = tokenizer.encode_plus(
-        question,
-        add_special_tokens=True,
-        max_length=64,
-        padding='max_length',
-        truncation=True,
-        return_attention_mask=True,
-        return_tensors='tf'
-    )
+    
     input_ids.append(encoded['input_ids'])
     attention_masks.append(encoded['attention_mask'])
 
