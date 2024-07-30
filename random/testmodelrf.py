@@ -1,20 +1,9 @@
 def evaluate_model(model, X_test, y_test, label_encoder):
-    
-    
-    
-    
-    
-    
-    
-    
-        
-        def main():
+
+def main():
 
     # Load saved model, vectorizer, and label encoder
-    logging.info("Loading saved model, vectorizer, and label encoder")
-    rf_classifier = load_pickle(model_path)
-    tfidf_vectorizer = load_pickle(vectorizer_path)
-    label_encoder = load_pickle(encoder_path)
+    
     
     # Load test dataset
     test_dataset = load_test_dataset(test_file_path, delimiter, header, lineterminator)
