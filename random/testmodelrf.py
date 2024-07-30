@@ -1,5 +1,3 @@
-    questions = test_dataset.iloc[:, 0].values.tolist()
-    answers = test_dataset.iloc[:, 1].values.tolist()
     combined_text = [f"{q} {a}" for q, a in zip(questions, answers)]
     
     X_test_tfidf = tfidf_vectorizer.transform(combined_text)
