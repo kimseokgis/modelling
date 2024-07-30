@@ -1,5 +1,3 @@
-def prepare_test_data(test_dataset, tfidf_vectorizer, label_encoder):
-    """
     Prepare test data by combining questions and answers, vectorizing text, and encoding labels.
     """
     questions = test_dataset.iloc[:, 0].values.tolist()
