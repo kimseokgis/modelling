@@ -1,5 +1,3 @@
-    logging.info(f"Vectorizing text data with max features {max_features}")
-    tfidf_vectorizer = TfidfVectorizer(max_features=max_features)
     X_train_tfidf = tfidf_vectorizer.fit_transform(text_train)
     X_test_tfidf = tfidf_vectorizer.transform(text_test)
     return X_train_tfidf, X_test_tfidf, tfidf_vectorizer
