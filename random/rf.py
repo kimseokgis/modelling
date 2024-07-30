@@ -1,7 +1,3 @@
-        pickle.dump(vectorizer, vectorizer_file)
-    with open(os.path.join(path, 'label_encoder.pkl'), 'wb') as encoder_file:
-        pickle.dump(label_encoder, encoder_file)
-
 def main():
     # Set parameters
     path = "output_dir_14k/"
