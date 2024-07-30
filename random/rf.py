@@ -1,5 +1,3 @@
-    """
-    logging.info(f"Splitting dataset into training and testing sets with test size {test_size}")
     return train_test_split(combined_text, labels, test_size=test_size, random_state=random_state)
 
 def vectorize_text(text_train, text_test, max_features):
