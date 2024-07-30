@@ -24,10 +24,7 @@ dataset = pd.read_csv('data.csv', delimiter="|", header=None, lineterminator='\n
 
 
 
-tokenized_answers_train = tokenizer.texts_to_sequences(answers_train)
-maxlen_answers_train = max([len(x) for x in tokenized_answers_train]) if tokenized_answers_train else 0
-save_config('maxlen_answers', maxlen_answers_train)
-decoder_input_data_train = pad_sequences(tokenized_answers_train, maxlen=maxlen_answers_train, padding='post')
+
 
 tokenized_answers_test = tokenizer.texts_to_sequences(answers_test)
 maxlen_answers_test = max([len(x) for x in tokenized_answers_test]) if tokenized_answers_test else 0
