@@ -1,12 +1,4 @@
 
-
-
-
-
-
-
-df = pd.DataFrame(filtered_rows, columns=['question', 'answer'])
-
 # Encode the labels (answers) to numeric values
 label_encoder = LabelEncoder()
 df['encoded_answer'] = label_encoder.fit_transform(df['answer'])
