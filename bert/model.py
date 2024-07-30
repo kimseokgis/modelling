@@ -37,3 +37,5 @@ for question in df['question']:
         return_tensors='tf'
     )
 
+    input_ids.append(encoded['input_ids'])
+    attention_masks.append(encoded['attention_mask'])
