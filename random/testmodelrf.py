@@ -4,9 +4,7 @@ def evaluate_model(model, X_test, y_test, label_encoder):
     
     
     
-    logging.info(f"Accuracy: {accuracy}")
-    logging.info("Classification Report:\n" + report)
-    logging.info(f"Confusion Matrix:\n{conf_matrix}")
+    
     
     return accuracy, report, conf_matrix
         
