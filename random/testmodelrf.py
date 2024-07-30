@@ -1,7 +1,4 @@
-
-    
-    accuracy = accuracy_score(y_test, y_pred)
-    report = classification_report(y_test, y_pred, target_names=label_encoder.classes_)
+t_names=label_encoder.classes_)
     conf_matrix = confusion_matrix(y_test, y_pred)
     
     logging.info(f"Accuracy: {accuracy}")
