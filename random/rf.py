@@ -1,6 +1,3 @@
-    logging.info(f"Creating output directory at: {path}")
-    os.makedirs(path, exist_ok=True)
-
 def load_dataset(file_path, delimiter, header, lineterminator):
     """
     Load the dataset from a CSV file.
