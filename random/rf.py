@@ -1,8 +1,3 @@
-        logging.info("Encoding labels")
-    label_encoder = LabelEncoder()
-    labels = label_encoder.fit_transform(answers)
-    return labels, label_encoder
-
 def split_dataset(combined_text, labels, test_size, random_state):
     """
     Split the dataset into training and testing sets.
