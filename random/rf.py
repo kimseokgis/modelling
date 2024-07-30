@@ -1,6 +1,3 @@
-    Encode the labels using LabelEncoder.
-    """
-    logging.info("Encoding labels")
     label_encoder = LabelEncoder()
     labels = label_encoder.fit_transform(answers)
     return labels, label_encoder
