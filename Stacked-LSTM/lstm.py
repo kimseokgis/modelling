@@ -16,13 +16,7 @@ dataset = pd.read_csv('data.csv', delimiter="|", header=None, lineterminator='\n
 
 
 
-def ensure_string(texts):
-    return [str(text) for text in texts]
 
-questions_train = ensure_string(questions_train)
-answers_train = ensure_string(answers_train)
-questions_test = ensure_string(questions_test)
-answers_test = ensure_string(answers_test)
 
 target_regex = '!"#$%&()*+,-./:;<=>?@[\]^_`{|}~\t\n\'0123456789'
 max_vocab_size = 100  # Set a limit on the vocabulary size
