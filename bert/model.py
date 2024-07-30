@@ -82,3 +82,7 @@ loss_fn = tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True)
 epochs = 400
 for epoch in range(epochs):
     print(f"Epoch {epoch + 1}/{epochs}")
+    for step, (x_batch_train, y_batch_train) in enumerate(train_dataset):
+        loss = train_step(model, optimizer, loss_fn, x_batch_train, y_batch_train)
+        if step % 50 == 0:
+            print(f"Training loss (for one batch) at step {step}: {loss:.4f}")
