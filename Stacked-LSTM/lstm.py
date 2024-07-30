@@ -18,13 +18,7 @@ dataset = pd.read_csv('data.csv', delimiter="|", header=None, lineterminator='\n
 
 
 
-target_regex = '!"#$%&()*+,-./:;<=>?@[\]^_`{|}~\t\n\'0123456789'
-max_vocab_size = 100  # Set a limit on the vocabulary size
-tokenizer = Tokenizer(filters=target_regex, lower=True, num_words=max_vocab_size)
-tokenizer.fit_on_texts(questions_train + answers_train + questions_test + answers_test)
-VOCAB_SIZE = min(len(tokenizer.word_index) + 1, max_vocab_size)
-save_config('VOCAB_SIZE', VOCAB_SIZE)
-print('Vocabulary size : {}'.format(VOCAB_SIZE))
+
 
 tokenized_questions_train = tokenizer.texts_to_sequences(questions_train)
 maxlen_questions_train = max([len(x) for x in tokenized_questions_train]) if tokenized_questions_train else 0
