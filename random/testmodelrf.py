@@ -3,10 +3,7 @@
     
     
     
-    combined_text = [f"{q} {a}" for q, a in zip(questions, answers)]
     
-                    X_test_tfidf = tfidf_vectorizer.transform(combined_text)
-    y_test = label_encoder.transform(answers)
     
     return X_test_tfidf, y_test
 
