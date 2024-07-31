@@ -32,3 +32,18 @@ answers_train = dataset_train.iloc[:, 1].values.tolist()
 
 questions_test = dataset_train.iloc[:, 0].values.tolist()
 answers_test = dataset_train.iloc[:, 1].values.tolist()
+
+def save_tokenizer(tokenizer):
+    with open('output_dir/tokenizer.pickle', 'wb') as handle:
+        pickle.dump(tokenizer, handle, protocol=pickle.HIGHEST_PROTOCOL)
+
+
+def save_config(key, value):
+    data = {}
+    if os.path.exists(path + 'config.json'):
+        with open(path + 'config.json') as json_file:
+            data = json.load(json_file)
+
+    data[key] = value
+    with open(path + 'config.json', 'w') as outfile:
+        json.dump(data, outfile)
