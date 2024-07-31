@@ -52,3 +52,24 @@ Pada kasus ini kami menggunakan multiple filter pada fungsi query kami sehingga 
  
 ### Why Using regexp?
 Keterbatasan GPU dan device mendorong kami menggunakan regex untuk mempermudah ketersediaan chatbot yang kami buat
+
+
+## How to Use the Python?
+Untuk merunning stacked-LSTM bisa dilakukan dengan cara:
+```bash
+ $ cd Stacked-LSTM
+ $ python lstm.py
+```
+pastikan requirement library sudah diisi, dengan isi sebagai berikut :
+```text
+numpy
+pandas
+requests
+Sastrawi
+keras
+keras_preprocessing
+```
+Kemudian jalankan perintah
+```bash
+   $ pip install -r requirements.txt
+```
