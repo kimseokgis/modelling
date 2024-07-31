@@ -60,3 +60,19 @@ func jaro(s1, s2 string) float64 {
 
 	return (float64(matches)/float64(len1) + float64(matches)/float64(len2) + float64(matches-t)/float64(matches)) / 3.0
 }
+
+func jaroWinkler(s1, s2 string) float64 {
+	jaroDist := jaro(s1, s2)
+
+	prefix := 0
+	for i := 0; i < min(len(s1), len(s2)); i++ {
+		if s1[i] == s2[i] {
+			prefix++
+		} else {
+			break
+		}
+	}
+	prefix = min(prefix, 4)
+
+	return jaroDist + 0.1*float64(prefix)*(1-jaroDist)
+}
