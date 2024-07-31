@@ -114,3 +114,13 @@ checkpoint = ModelCheckpoint(os.path.join(path, 'model-{epoch:02d}-{loss:.2f}.hd
 model = Model([enc_inp, dec_inp], output)
 model.compile(optimizer=RMSprop(), loss='categorical_crossentropy', metrics=['accuracy'])
 model.summary()
+
+batch_size = 64
+epochs = 600
+model.fit([encoder_input_data_train, decoder_input_data_train],
+          decoder_output_data_train,
+          batch_size=batch_size,
+          epochs=epochs,
+          validation_data=([encoder_input_data_test, decoder_input_data_test], decoder_output_data_test),
+          callbacks=[tensorboard_callback, checkpoint])
+model.save(os.path.join(path, 'model-' + path.replace("/", "") + '.h5'))
