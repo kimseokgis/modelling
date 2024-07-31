@@ -1,7 +1,15 @@
 from Sastrawi.Stemmer.StemmerFactory import StemmerFactory
-import re
-import pandas as pd
 
+import io
+import os
+import re
+import requests
+import csv
+import datetime
+import numpy as np
+import pandas as pd
+import random
+import pickle
 
 
 factory = StemmerFactory()
@@ -38,3 +46,23 @@ def normalize_sentence(sentence):
     return punct_re_escape.sub('',normal_sentence)
   return sentence
 
+df = pd.read_csv('./dataset/output2.csv', sep='|',usecols= ['question','answer'])
+df.head()
+
+question_length = {}
+answer_length = {}
+
+for index, row in df.iterrows():
+  question = normalize_sentence(row['question'])
+  question = normalize_sentence(question)
+  question = stemmer.stem(question)
+
+  if question_length.get(len(question.split())):
+    question_length[len(question.split())] += 1
+  else:
+    question_length[len(question.split())] = 1
+
+  if answer_length.get(len(str(row['answer']).split())):
+    answer_length[len(str(row['answer']).split())] += 1
+  else:
+    answer_length[len(str(row['answer']).split())] = 1
