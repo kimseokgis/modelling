@@ -36,6 +36,12 @@ replace_dict = {
     '\n\n': ''
 }
 
+# Fungsi untuk mengganti simbol pada string
+def replace_symbols(text, replace_dict):
+    for symbol, replacement in replace_dict.items():
+        text = text.replace(symbol, replacement)
+    return text
+
 # Membersihkan dan melakukan tokenisasi pada kolom question dan answer
 dataset['cleaned_question'] = dataset['question'].apply(clean_text)
 dataset['cleaned_answer'] = dataset['answer'].apply(clean_text)
