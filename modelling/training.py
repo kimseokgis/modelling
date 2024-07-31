@@ -47,3 +47,8 @@ def save_config(key, value):
     data[key] = value
     with open(path + 'config.json', 'w') as outfile:
         json.dump(data, outfile)
+
+target_regex = '!"#$%&()*+,-./:;<=>?@[\]^_`{|}~\t\n\'0123456789'
+tokenizer = Tokenizer(filters=target_regex, lower=True)
+tokenizer.fit_on_texts(questions_train + answers_train + questions_test + answers_test)
+save_tokenizer(tokenizer)
