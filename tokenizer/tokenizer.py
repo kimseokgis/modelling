@@ -14,3 +14,7 @@ def clean_text(text):
     # Mengubah teks menjadi huruf kecil
     text = text.lower()
     return text
+
+# Membaca dataset dari file CSV
+file_path = 'dataset/output.csv'
+dataset = pd.read_csv(file_path)
