@@ -18,3 +18,10 @@ def clean_text(text):
 # Membaca dataset dari file CSV
 file_path = 'dataset/output.csv'
 dataset = pd.read_csv(file_path)
+
+# Membersihkan dan melakukan tokenisasi pada kolom question dan answer
+dataset['cleaned_question'] = dataset['question'].apply(clean_text)
+dataset['cleaned_answer'] = dataset['answer'].apply(clean_text)
+
+dataset['tokenized_question'] = dataset['cleaned_question'].apply(word_tokenize)
+dataset['tokenized_answer'] = dataset['cleaned_answer'].apply(word_tokenize)
