@@ -48,4 +48,7 @@ Pada kasus ini kami menggunakan multiple filter pada fungsi query kami sehingga 
 		queries = splits[len(splits)-3] + " " + splits[len(splits)-2] + " " + splits[len(splits)-1]
 		filter := bson.M{"questions": primitive.Regex{Pattern: queries, Options: "i"}}
 ```
- dengan melakukan split dari setiap kata yang ada dan mengambil secara bertahap urutan kata dari setiap kalimat yang dimasukan
+ dengan melakukan split dari setiap kata yang ada dan mengambil secara bertahap urutan kata dari setiap kalimat yang dimasukan (full code can be accessed on : kimseokgis/backend-ai/helper/mongo.go)
+ 
+### Why Using regexp?
+Keterbatasan GPU dan device mendorong kami menggunakan regex untuk mempermudah ketersediaan chatbot yang kami buat
