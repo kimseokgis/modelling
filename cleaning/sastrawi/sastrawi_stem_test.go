@@ -10,3 +10,9 @@ func TestStemmer(t *testing.T) {
 	newSentence := Stemmer(str)
 	fmt.Println(newSentence)
 }
+
+func TestSeparateSuffixMu(t *testing.T) {
+	str := "siapa dirimu"
+	newSentence := SeparateSuffixMu(str)
+	fmt.Println(newSentence)
+}
