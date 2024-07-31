@@ -40,3 +40,10 @@ def predict(question):
 
     return predicted_label
 
+# Interactive loop to get user input and predict
+while True:
+    question = input("Enter a question (or 'exit' to quit): ")
+    if question.lower() == 'exit':
+        break
+    answer = predict(question)
+    print(f"Predicted Answer: {answer}")
