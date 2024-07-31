@@ -18,7 +18,11 @@ stemmer = factory.create_stemmer()
 punct_re_escape = re.compile('[%s]' % re.escape('!"#$%&()*+,./:;<=>?@[\\]^_`{|}~'))
 unknowns = ["gak paham","kurang ngerti","I don't know"]
 
+list_indonesia_slang = pd.read_csv('./dataset/daftar-slang-bahasa-indonesia.csv', header=None).to_numpy()
 
+data_slang = {}
+for key, value in list_indonesia_slang:
+  data_slang[key] = value
 def dynamic_switcher(dict_data, key):
   return dict_data.get(key, None)
 
