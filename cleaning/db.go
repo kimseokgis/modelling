@@ -24,7 +24,6 @@ func DBAdmn(dbname string) *mongo.Database {
 	return clay.Database(dbname)
 }
 
-// Fungsi untuk mengambil semua dokumen dari koleksi "dataset"
 func GetAllDatasets(ctx context.Context, params PaginationParams, db *mongo.Database) ([]Dataset, error) {
 	if params.Page < 1 {
 		return nil, fmt.Errorf("Page number must be greater than 0")
@@ -35,8 +34,6 @@ func GetAllDatasets(ctx context.Context, params PaginationParams, db *mongo.Data
 
 	collection := db.Collection("datasets")
 	filter := bson.M{}
-
-	// Calculate the number of documents to skip
 
 	findOptions := options.Find()
 	findOptions.SetLimit(params.Limit)
@@ -64,17 +61,12 @@ func GetAllDatasets(ctx context.Context, params PaginationParams, db *mongo.Data
 	}
 
 	defer cur.Close(context.TODO())
-	//defer db.Client().Disconnect(context.TODO())
 	return datasets, nil
 }
 
 func GetDatasetByID(id primitive.ObjectID, db *mongo.Database) (*Dataset, error) {
 	collection := db.Collection("datasets")
-
-	// Membuat filter berdasarkan _id
 	filter := bson.D{{"_id", id}}
-
-	// Melakukan query untuk mengambil dokumen dengan _id tertentu
 	var dataset Dataset
 	err := collection.FindOne(context.TODO(), filter).Decode(&dataset)
 	if err != nil {
@@ -83,23 +75,18 @@ func GetDatasetByID(id primitive.ObjectID, db *mongo.Database) (*Dataset, error)
 		}
 		return nil, fmt.Errorf("FindOne: %+v", err)
 	}
-	//defer db.Client().Disconnect(context.TODO())
 	return &dataset, nil
 }
 
 func UpdateDatasetByID(id primitive.ObjectID, updateData Dataset, db *mongo.Database) (err error) {
 	collection := db.Collection("datasets")
-	// Membuat filter berdasarkan _id
 	filter := bson.M{"_id": id}
-	// Membuat operasi update
 	update := bson.M{
 		"$set": updateData,
 	}
-	// Melakukan update dokumen
 	err = collection.FindOneAndUpdate(context.TODO(), filter, update).Err()
 	if err != nil {
 		return fmt.Errorf("UpdateOne: %+v", err)
 	}
-	//defer db.Client().Disconnect(context.TODO())
 	return nil
 }
