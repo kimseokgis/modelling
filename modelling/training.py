@@ -76,3 +76,26 @@ tokenized_answers_test = tokenizer.texts_to_sequences(answers_test)
 maxlen_answers_test = max([len(x) for x in tokenized_answers_test])
 save_config('maxlen_answers', maxlen_answers_test)
 decoder_input_data_test = pad_sequences(tokenized_answers_test, maxlen=maxlen_answers_test, padding='post')
+
+for i in range(len(tokenized_answers_train)):
+    tokenized_answers_train[i] = tokenized_answers_train[i][1:]
+padded_answers_train = pad_sequences(tokenized_answers_train, maxlen=maxlen_answers_train, padding='post')
+decoder_output_data_train = to_categorical(padded_answers_train, num_classes=VOCAB_SIZE)
+
+for i in range(len(tokenized_answers_test)):
+    tokenized_answers_test[i] = tokenized_answers_test[i][1:]
+padded_answers_test = pad_sequences(tokenized_answers_test, maxlen=maxlen_answers_test, padding='post')
+decoder_output_data_test = to_categorical(padded_answers_test, num_classes=VOCAB_SIZE)
+
+enc_inp = Input(shape=(None,))
+enc_embedding = Embedding(VOCAB_SIZE, 256, mask_zero=True)(enc_inp)
+enc_outputs, forward_h, forward_c, backward_h, backward_c = Bidirectional(LSTM(256, return_state=True, dropout=0.5, recurrent_dropout=0.5))(enc_embedding)
+
+state_h = Concatenate()([forward_h, backward_h])
+state_c = Concatenate()([forward_c, backward_c])
+enc_states = [state_h, state_c]
+
+dec_inp = Input(shape=(None,))
+dec_embedding = Embedding(VOCAB_SIZE, 256, mask_zero=True)(dec_inp)
+dec_lstm = LSTM(256 * 2, return_state=True, return_sequences=True, dropout=0.5, recurrent_dropout=0.5)
+dec_outputs, _, _ = dec_lstm(dec_embedding, initial_state=enc_states)
