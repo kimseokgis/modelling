@@ -73,3 +73,9 @@ Kemudian jalankan perintah
 ```bash
    $ pip install -r requirements.txt
 ```
+
+Untuk bert bisa masuk ke folder bert dengan cara:
+```bash
+ $ cd bert
+ $ python model.py
+```
