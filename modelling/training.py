@@ -99,3 +99,18 @@ dec_inp = Input(shape=(None,))
 dec_embedding = Embedding(VOCAB_SIZE, 256, mask_zero=True)(dec_inp)
 dec_lstm = LSTM(256 * 2, return_state=True, return_sequences=True, dropout=0.5, recurrent_dropout=0.5)
 dec_outputs, _, _ = dec_lstm(dec_embedding, initial_state=enc_states)
+
+dec_dense = Dense(VOCAB_SIZE, activation=softmax)
+output = dec_dense(dec_outputs)
+
+logdir = os.path.join(path, "logs")
+tensorboard_callback = TensorBoard(logdir, histogram_freq=1)
+
+checkpoint = ModelCheckpoint(os.path.join(path, 'model-{epoch:02d}-{loss:.2f}.hdf5'),
+                             monitor='loss',
+                             verbose=1,
+                             save_best_only=True, mode='auto', period=150)
+
+model = Model([enc_inp, dec_inp], output)
+model.compile(optimizer=RMSprop(), loss='categorical_crossentropy', metrics=['accuracy'])
+model.summary()
