@@ -1,4 +1,4 @@
-# modelling
+# Modelling
 Repo Training Model
 
 
@@ -78,4 +78,10 @@ Untuk bert bisa masuk ke folder bert dengan cara:
 ```bash
  $ cd bert
  $ python model.py
+```
+
+untuk menjalankan script python lainnya bisa menggunakan :
+```bash
+ $ cd <folder>
+ $ python <namafile.py>
 ```
