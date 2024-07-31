@@ -25,3 +25,13 @@ dataset['cleaned_answer'] = dataset['answer'].apply(clean_text)
 
 dataset['tokenized_question'] = dataset['cleaned_question'].apply(word_tokenize)
 dataset['tokenized_answer'] = dataset['cleaned_answer'].apply(word_tokenize)
+
+# Membagi dataset menjadi set pelatihan dan pengujian
+train, test = train_test_split(dataset, test_size=0.2, random_state=42)
+
+# Menampilkan hasil tokenisasi dan pembagian dataset
+print("Dataset Pelatihan (Train):")
+print(train[['question', 'tokenized_question', 'answer', 'tokenized_answer']])
+
+print("\nDataset Pengujian (Test):")
+print(test[['question', 'tokenized_question', 'answer', 'tokenized_answer']])
