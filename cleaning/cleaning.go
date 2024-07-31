@@ -7,9 +7,6 @@ import (
 )
 
 func Cleaningdata() (Err error) {
-	// Membuat konteks dengan timeout
-	//ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
-	//defer cancel()
 	db := DBAdmn("AI")
 	var datas []Dataset
 	re := 100
@@ -71,8 +68,8 @@ var symbols = []string{
 	";",
 	":",
 	"'",
-	//"\"",
-	//"\\",
+	"\"",
+	"\\",
 	"|",
 	",",
 	".",
