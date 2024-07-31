@@ -18,6 +18,16 @@ stemmer = factory.create_stemmer()
 punct_re_escape = re.compile('[%s]' % re.escape('!"#$%&()*+,./:;<=>?@[\\]^_`{|}~'))
 unknowns = ["gak paham","kurang ngerti","I don't know"]
 
+
+def dynamic_switcher(dict_data, key):
+  return dict_data.get(key, None)
+
+def check_normal_word(word_input):
+  slang_result = dynamic_switcher(data_slang, word_input)
+  if slang_result:
+    return slang_result
+  return word_input
+
 # Loading data
 df = pd.read_csv('dataset-a.csv', on_bad_lines='skip', delimiter="|",)
 print('Dataset:\n', df)
