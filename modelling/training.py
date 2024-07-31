@@ -20,3 +20,15 @@ try:
     os.makedirs(path)
 except:
     pass
+
+dataset = pd.read_csv('./dataset/clean_qa.txt', delimiter="|", header=None,lineterminator='\n')
+
+dataset_val = dataset.iloc[1794:].to_csv('output_dir/val.csv')
+
+dataset_train = dataset.iloc[:1794]
+
+questions_train = dataset_train.iloc[:, 0].values.tolist()
+answers_train = dataset_train.iloc[:, 1].values.tolist()
+
+questions_test = dataset_train.iloc[:, 0].values.tolist()
+answers_test = dataset_train.iloc[:, 1].values.tolist()
