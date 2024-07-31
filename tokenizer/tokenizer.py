@@ -19,6 +19,9 @@ def clean_text(text):
 file_path = 'dataset/output.csv'
 dataset = pd.read_csv(file_path)
 
+# Drop kolom 'id'
+dataset = dataset.drop(columns=['_id/$oid'])
+
 # Definisikan simbol-simbol yang ingin diganti dan penggantinya
 replace_dict = {
     '@': '',
