@@ -52,3 +52,27 @@ target_regex = '!"#$%&()*+,-./:;<=>?@[\]^_`{|}~\t\n\'0123456789'
 tokenizer = Tokenizer(filters=target_regex, lower=True)
 tokenizer.fit_on_texts(questions_train + answers_train + questions_test + answers_test)
 save_tokenizer(tokenizer)
+
+VOCAB_SIZE = len(tokenizer.word_index) + 1
+save_config('VOCAB_SIZE', VOCAB_SIZE)
+print('Vocabulary size : {}'.format(VOCAB_SIZE))
+
+tokenized_questions_train = tokenizer.texts_to_sequences(questions_train)
+maxlen_questions_train = max([len(x) for x in tokenized_questions_train])
+save_config('maxlen_questions', maxlen_questions_train)
+encoder_input_data_train = pad_sequences(tokenized_questions_train, maxlen=maxlen_questions_train, padding='post')
+
+tokenized_questions_test = tokenizer.texts_to_sequences(questions_test)
+maxlen_questions_test = max([len(x) for x in tokenized_questions_test])
+save_config('maxlen_questions', maxlen_questions_test)
+encoder_input_data_test = pad_sequences(tokenized_questions_test, maxlen=maxlen_questions_test, padding='post')
+
+tokenized_answers_train = tokenizer.texts_to_sequences(answers_train)
+maxlen_answers_train = max([len(x) for x in tokenized_answers_train])
+save_config('maxlen_answers', maxlen_answers_train)
+decoder_input_data_train = pad_sequences(tokenized_answers_train, maxlen=maxlen_answers_train, padding='post')
+
+tokenized_answers_test = tokenizer.texts_to_sequences(answers_test)
+maxlen_answers_test = max([len(x) for x in tokenized_answers_test])
+save_config('maxlen_answers', maxlen_answers_test)
+decoder_input_data_test = pad_sequences(tokenized_answers_test, maxlen=maxlen_answers_test, padding='post')
