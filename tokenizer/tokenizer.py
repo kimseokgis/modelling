@@ -42,8 +42,11 @@ def replace_symbols(text, replace_dict):
         text = text.replace(symbol, replacement)
     return text
 
+dataset['questions'] = dataset['questions'].apply(lambda x: replace_symbols(str(x), replace_dict))
+dataset['answer'] = dataset['answer'].apply(lambda x: replace_symbols(str(x), replace_dict))
+
 # Membersihkan dan melakukan tokenisasi pada kolom question dan answer
-dataset['cleaned_question'] = dataset['question'].apply(clean_text)
+dataset['cleaned_question'] = dataset['questions'].apply(clean_text)
 dataset['cleaned_answer'] = dataset['answer'].apply(clean_text)
 
 dataset['tokenized_question'] = dataset['cleaned_question'].apply(word_tokenize)
