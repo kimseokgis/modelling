@@ -19,6 +19,20 @@ def clean_text(text):
 file_path = 'dataset/output.csv'
 dataset = pd.read_csv(file_path)
 
+# Definisikan simbol-simbol yang ingin diganti dan penggantinya
+replace_dict = {
+    '@': '',
+    '#': '',
+    '&': 'and',
+    '!': '',
+    '"': '',
+    "'": '',
+    ",": '',
+    '.': '',
+    '\n': ' ',
+    '\n\n': ''
+}
+
 # Membersihkan dan melakukan tokenisasi pada kolom question dan answer
 dataset['cleaned_question'] = dataset['question'].apply(clean_text)
 dataset['cleaned_answer'] = dataset['answer'].apply(clean_text)
