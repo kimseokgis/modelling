@@ -66,3 +66,21 @@ for index, row in df.iterrows():
     answer_length[len(str(row['answer']).split())] += 1
   else:
     answer_length[len(str(row['answer']).split())] = 1
+
+    question_length
+
+answer_length
+
+val_question_length = list(question_length.values())
+key_question_length = list(question_length.keys())
+key_val_question_length = list(zip(key_question_length, val_question_length))
+df_question_length = pd.DataFrame(key_val_question_length, columns=['length_data', 'total_sentences'])
+df_question_length.sort_values(by=['length_data'], inplace=True)
+df_question_length.describe()
+
+val_answer_length = list(answer_length.values())
+key_answer_length = list(answer_length.keys())
+key_val_answer_length = list(zip(key_answer_length, val_answer_length))
+df_answer_length = pd.DataFrame(key_val_answer_length, columns=['length_data', 'total_sentences'])
+df_answer_length.sort_values(by=['length_data'], inplace=True)
+df_answer_length.describe()
