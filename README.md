@@ -32,3 +32,20 @@ Repo Training Model
 1. Indo-Bert
 2. Stacked-LSTM
 3. Regexp Queries (golang) (Low Cost Modelling)
+
+## Documentation
+Untuk Regexp Queries :
+```Go
+   primitive.Regex{pattern: "string", options:"i"}
+```
+
+sertakan primitve.regex ke dalam bson.M atau bson.D maka string yang dimasukan baik itu lowercase atau UpperCase akan otomatis menyesuaikan sesuai urutan hurufnya .
+Pada kasus ini kami menggunakan multiple filter pada fungsi query kami sehingga menjadi:
+```
+	queries = Stemmer(queries)
+	splits := strings.Split(queries, " ")
+	if len(splits) >= 5 {
+		queries = splits[len(splits)-3] + " " + splits[len(splits)-2] + " " + splits[len(splits)-1]
+		filter := bson.M{"questions": primitive.Regex{Pattern: queries, Options: "i"}}
+```
+ dengan melakukan split dari setiap kata yang ada dan mengambil secara bertahap urutan kata dari setiap kalimat yang dimasukan
