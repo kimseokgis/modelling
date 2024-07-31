@@ -3,3 +3,5 @@
 *.env
 *.pickle
 *.h5
+
+/dataset
